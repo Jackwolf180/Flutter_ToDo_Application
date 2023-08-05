@@ -5,7 +5,7 @@ import '../model/todo.dart';
 import '../widgets/todo_Items.dart';
 
 class Home extends StatefulWidget {
-  Home({Key? key}) : super(key: key);
+  const Home({Key? key}) : super(key: key);
 
   @override
   State<Home> createState() => _HomeState();
@@ -18,7 +18,6 @@ class _HomeState extends State<Home> {
 
   @override
   void initState() {
-    // TODO: implement initState
     _foundToDo = todosList;
     super.initState();
   }
@@ -51,7 +50,7 @@ class _HomeState extends State<Home> {
                       for (ToDo todo in _foundToDo.reversed)
                         TodoItems(
                           todo: todo,
-                          onTodochanged: _handlToDoChange,
+                          onTodochanged: _handleToDoChange,
                           onDeleteItem: _deleteToDoItems,
                         ),
                     ],
@@ -127,7 +126,7 @@ class _HomeState extends State<Home> {
     _todoController.clear();
   }
 
-  void _handlToDoChange(ToDo todo) {
+  void _handleToDoChange(ToDo todo) {
     setState(() {
       todo.isDone = !todo.isDone;
     });
